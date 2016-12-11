@@ -4,6 +4,7 @@ class CreateMyGiftCards < ActiveRecord::Migration
       t.integer :place_id
       t.datetime :expiration_date
       t.string :card_image
+      t.integer :user_id
 
       t.timestamps
 

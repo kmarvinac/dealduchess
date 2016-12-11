@@ -12,6 +12,7 @@
         <th>Place</th>
         <th>Expiration date</th>
         <th>Card image</th>
+        <th>User</th>
         <th>Actions</th>
       </tr>
 
@@ -27,9 +28,19 @@
         <td><%= my_gift_card.expiration_date %></td>
         <td><img src='<%= my_gift_card.card_image %>' class='img-responsive'></td>
         <td>
+          <% if my_gift_card.user.present? %>
+            <a href="/users/<%= my_gift_card.user.id %>">
+              <%= my_gift_card.user.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
           <a href="/my_gift_cards/<%= my_gift_card.id %>" class="btn btn-primary">Show</a>
-          <a href="/my_gift_cards/<%= my_gift_card.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_my_gift_card/<%= my_gift_card.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == my_gift_card.user %>
+            <a href="/my_gift_cards/<%= my_gift_card.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_my_gift_card/<%= my_gift_card.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
