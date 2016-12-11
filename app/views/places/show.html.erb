@@ -25,13 +25,31 @@
       <dd><%= @place.zip %></dd>
 
       <dt>Neighborhood</dt>
-      <dd><%= @place.neighborhood_id %></dd>
+      <dd>
+        <% if @place.neighborhood.present? %>
+          <a href="/neighborhoods/<%= @place.neighborhood_id %>">
+            <%= @place.neighborhood.neighborhood_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Place type</dt>
-      <dd><%= @place.place_type_id %></dd>
+      <dd>
+        <% if @place.place_type.present? %>
+          <a href="/place_types/<%= @place.place_type_id %>">
+            <%= @place.place_type.place_type %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
-      <dd><%= @place.user_id %></dd>
+      <dd>
+        <% if @place.user.present? %>
+          <a href="/users/<%= @place.user_id %>">
+            <%= @place.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Comments</dt>
       <dd><%= @place.comments %></dd>

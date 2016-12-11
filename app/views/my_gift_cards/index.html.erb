@@ -17,7 +17,13 @@
 
       <% @my_gift_cards.each do |my_gift_card| %>
       <tr>
-        <td><%= my_gift_card.place.place_name %></td>
+        <td>
+          <% if my_gift_card.place.present? %>
+            <a href="/places/<%= my_gift_card.place.id %>">
+              <%= my_gift_card.place.place_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= my_gift_card.expiration_date %></td>
         <td><img src='<%= my_gift_card.card_image %>' class='img-responsive'></td>
         <td>

@@ -15,7 +15,13 @@
       <dd><%= @deal.day_of_week %></dd>
 
       <dt>Place</dt>
-      <dd><%= @deal.place_id %></dd>
+      <dd>
+        <% if @deal.place.present? %>
+          <a href="/places/<%= @deal.place_id %>">
+            <%= @deal.place.place_name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

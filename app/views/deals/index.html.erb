@@ -21,7 +21,13 @@
         <td><%= deal.discount_type %></td>
         <td><%= deal.terms_of_deal %></td>
         <td><%= deal.day_of_week %></td>
-        <td><%= deal.place.place_name %></td>
+        <td>
+          <% if deal.place.present? %>
+            <a href="/places/<%= deal.place.id %>">
+              <%= deal.place.place_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/deals/<%= deal.id %>" class="btn btn-primary">Show</a>
           <a href="/deals/<%= deal.id %>/edit" class="btn btn-warning">Edit</a>

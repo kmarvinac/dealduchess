@@ -37,9 +37,27 @@
         <td><%= place.city %></td>
         <td><%= place.state %></td>
         <td><%= place.zip %></td>
-        <td><%= place.neighborhood.neighborhood_name %></td>
-        <td><%= place.place_type.place_type %></td>
-        <td><%= place.user.email %></td>
+        <td>
+          <% if place.neighborhood.present? %>
+            <a href="/neighborhoods/<%= place.neighborhood.id %>">
+              <%= place.neighborhood.neighborhood_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if place.place_type.present? %>
+            <a href="/place_types/<%= place.place_type.id %>">
+              <%= place.place_type.place_type %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if place.user.present? %>
+            <a href="/users/<%= place.user.id %>">
+              <%= place.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= place.comments %></td>
         <td>
           <a href="/places/<%= place.id %>" class="btn btn-primary">Show</a>
