@@ -1,6 +1,9 @@
 class Place < ApplicationRecord
   # Direct associations
 
+  belongs_to :neighborhood,
+             :counter_cache => true
+
   belongs_to :place_type,
              :counter_cache => true
 
