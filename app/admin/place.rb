@@ -1,5 +1,7 @@
 ActiveAdmin.register Place do
 
+ permit_params :place_name, :address, :city, :state, :zip, :neighborhood_id, :place_type_id, :user_id, :comments
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
