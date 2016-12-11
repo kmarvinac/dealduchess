@@ -17,7 +17,7 @@
 
       <% @my_gift_cards.each do |my_gift_card| %>
       <tr>
-        <td><%= my_gift_card.place_id %></td>
+        <td><%= my_gift_card.place.place_name %></td>
         <td><%= my_gift_card.expiration_date %></td>
         <td><%= my_gift_card.card_image %></td>
         <td>
