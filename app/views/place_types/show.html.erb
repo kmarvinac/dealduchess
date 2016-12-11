@@ -51,6 +51,92 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_place" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for place_name -->
+      <div class="form-group">
+        <label for="place_name" class="control-label">
+          Place name
+        </label>
+
+        <input type="text" id="place_name" name="place_name" placeholder="Place name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for zip -->
+      <div class="form-group">
+        <label for="zip" class="control-label">
+          Zip
+        </label>
+
+        <input type="text" id="zip" name="zip" placeholder="Zip" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for neighborhood_id -->
+      <div class="form-group">
+        <label for="neighborhood_id" class="control-label">
+          Neighborhood
+        </label>
+
+        <%= select_tag(:neighborhood_id, options_from_collection_for_select(Neighborhood.all, :id, :neighborhood_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for place_type_id -->
+      <div class="form-group">
+        <label for="place_type_id" class="control-label">
+          Place type
+        </label>
+
+        <%= select_tag(:place_type_id, options_from_collection_for_select(PlaceType.all, :id, :place_type), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for comments -->
+      <div class="form-group">
+        <label for="comments" class="control-label">
+          Comments
+        </label>
+
+        <textarea id="comments" name="comments" placeholder="Comments" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Place
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

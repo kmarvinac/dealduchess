@@ -16,6 +16,8 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @my_gift_card = MyGiftCard.new
+    @deal = Deal.new
     @place = Place.find(params[:id])
 
     render("places/show.html.erb")

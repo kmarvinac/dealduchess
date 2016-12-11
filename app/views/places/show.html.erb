@@ -77,6 +77,47 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_deal" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for discount_type -->
+      <div class="form-group">
+        <label for="discount_type" class="control-label">
+          Discount type
+        </label>
+
+        <input type="text" id="discount_type" name="discount_type" placeholder="Discount type" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for terms_of_deal -->
+      <div class="form-group">
+        <label for="terms_of_deal" class="control-label">
+          Terms of deal
+        </label>
+
+        <textarea id="terms_of_deal" name="terms_of_deal" placeholder="Terms of deal" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for day_of_week -->
+      <div class="form-group">
+        <label for="day_of_week" class="control-label">
+          Day of week
+        </label>
+
+        <input type="text" id="day_of_week" name="day_of_week" placeholder="Day of week" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for place_id -->
+      <input type="hidden" name="place_id" value="<%= @place.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Deal
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -108,6 +149,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_my_gift_card" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for place_id -->
+      <input type="hidden" name="place_id" value="<%= @place.id %>">
+
+      <!-- Label and input for expiration_date -->
+      <div class="form-group">
+        <label for="expiration_date" class="control-label">
+          Expiration date
+        </label>
+
+        <input type="text" id="expiration_date" name="expiration_date" placeholder="Expiration date" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for card_image -->
+      <div class="form-group">
+        <label for="card_image" class="control-label">
+          Card image
+        </label>
+
+        <input type="text" id="card_image" name="card_image" placeholder="Card image" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create My Gift Card
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

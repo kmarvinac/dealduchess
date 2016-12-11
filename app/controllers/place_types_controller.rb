@@ -6,6 +6,7 @@ class PlaceTypesController < ApplicationController
   end
 
   def show
+    @place = Place.new
     @place_type = PlaceType.find(params[:id])
 
     render("place_types/show.html.erb")
