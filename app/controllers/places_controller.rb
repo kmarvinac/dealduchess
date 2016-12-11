@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
   end
 
   def index
-    @places = Place.all
+    @places = current_user.places.page(params[:page]).per(10)
 
     render("places/index.html.erb")
   end
