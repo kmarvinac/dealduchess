@@ -1,5 +1,7 @@
 ActiveAdmin.register Deal do
 
+ permit_params :discount_type, :terms_of_deal, :day_of_week, :place_id
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
