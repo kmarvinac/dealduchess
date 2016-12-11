@@ -1,6 +1,7 @@
 class PlaceTypesController < ApplicationController
   def index
-    @place_types = PlaceType.page(params[:page]).per(10)
+    @q = PlaceType.ransack(params[:q])
+    @place_types = @q.result(:distinct => true).includes(:places).page(params[:page]).per(10)
 
     render("place_types/index.html.erb")
   end
