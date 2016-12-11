@@ -1,6 +1,6 @@
 class PlaceTypesController < ApplicationController
   def index
-    @place_types = PlaceType.all
+    @place_types = PlaceType.page(params[:page]).per(10)
 
     render("place_types/index.html.erb")
   end
