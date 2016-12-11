@@ -1,6 +1,9 @@
 class Place < ApplicationRecord
   # Direct associations
 
+  has_many   :my_gift_cards,
+             :dependent => :destroy
+
   has_many   :deals,
              :dependent => :destroy
 
