@@ -34,8 +34,11 @@
         <td><%= place.comments %></td>
         <td>
           <a href="/places/<%= place.id %>" class="btn btn-primary">Show</a>
-          <a href="/places/<%= place.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_place/<%= place.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == place.user %>
+            <a href="/places/<%= place.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_place/<%= place.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
