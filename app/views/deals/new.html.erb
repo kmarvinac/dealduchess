@@ -51,7 +51,7 @@
           Place
         </label>
 
-        <input type="text" id="place_id" name="place_id" placeholder="Place" class="form-control" value="<%= @deal.place_id %>">
+        <%= select_tag(:place_id, options_from_collection_for_select(Place.all, :id, :place_name, @deal.place_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
