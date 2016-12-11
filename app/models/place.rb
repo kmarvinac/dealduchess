@@ -1,6 +1,9 @@
 class Place < ApplicationRecord
   # Direct associations
 
+  belongs_to :place_type,
+             :counter_cache => true
+
   has_many   :my_gift_cards,
              :dependent => :destroy
 
