@@ -47,3 +47,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Place has many deals -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Deals
+      </li>
+
+      <% @place.deals.each do |deal| %>
+        <li class="list-group-item">
+          <a href="/deals/<%= deal.id %>">
+            <%= deal.discount_type %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/deals/<%= deal.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/deals/<%= deal.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_deal/<%= deal.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Place has many my_gift_cards -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        My_gift_cards
+      </li>
+
+      <% @place.my_gift_cards.each do |my_gift_card| %>
+        <li class="list-group-item">
+          <a href="/my_gift_cards/<%= my_gift_card.id %>">
+            <%= my_gift_card.place_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/my_gift_cards/<%= my_gift_card.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/my_gift_cards/<%= my_gift_card.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_my_gift_card/<%= my_gift_card.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
