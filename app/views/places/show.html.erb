@@ -1,0 +1,49 @@
+<div class="page-header">
+  <h3>Place #<%= @place.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Place name</dt>
+      <dd><%= @place.place_name %></dd>
+
+      <dt>Address</dt>
+      <dd><%= @place.address %></dd>
+
+      <dt>City</dt>
+      <dd><%= @place.city %></dd>
+
+      <dt>State</dt>
+      <dd><%= @place.state %></dd>
+
+      <dt>Zip</dt>
+      <dd><%= @place.zip %></dd>
+
+      <dt>Neighborhood</dt>
+      <dd><%= @place.neighborhood_id %></dd>
+
+      <dt>Place type</dt>
+      <dd><%= @place.place_type_id %></dd>
+
+      <dt>User</dt>
+      <dd><%= @place.user_id %></dd>
+
+      <dt>Comments</dt>
+      <dd><%= @place.comments %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/places" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/places/<%= @place.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_place/<%= @place.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

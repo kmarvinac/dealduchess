@@ -1,0 +1,109 @@
+<!-- Validation failure messages -->
+<% if @place.errors.any? %>
+  <% @place.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Place</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_place" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for place_name -->
+      <div class="form-group">
+        <label for="place_name" class="control-label">
+          Place name
+        </label>
+
+        <input type="text" id="place_name" name="place_name" placeholder="Place name" class="form-control" value="<%= @place.place_name %>">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @place.address %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @place.city %>">
+      </div>
+
+      <!-- Label and input for state -->
+      <div class="form-group">
+        <label for="state" class="control-label">
+          State
+        </label>
+
+        <input type="text" id="state" name="state" placeholder="State" class="form-control" value="<%= @place.state %>">
+      </div>
+
+      <!-- Label and input for zip -->
+      <div class="form-group">
+        <label for="zip" class="control-label">
+          Zip
+        </label>
+
+        <input type="text" id="zip" name="zip" placeholder="Zip" class="form-control" value="<%= @place.zip %>">
+      </div>
+
+      <!-- Label and input for neighborhood_id -->
+      <div class="form-group">
+        <label for="neighborhood_id" class="control-label">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood_id" name="neighborhood_id" placeholder="Neighborhood" class="form-control" value="<%= @place.neighborhood_id %>">
+      </div>
+
+      <!-- Label and input for place_type_id -->
+      <div class="form-group">
+        <label for="place_type_id" class="control-label">
+          Place type
+        </label>
+
+        <input type="text" id="place_type_id" name="place_type_id" placeholder="Place type" class="form-control" value="<%= @place.place_type_id %>">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @place.user_id %>">
+      </div>
+
+      <!-- Label and input for comments -->
+      <div class="form-group">
+        <label for="comments" class="control-label">
+          Comments
+        </label>
+
+        <textarea id="comments" name="comments" placeholder="Comments" class="form-control" rows="3"><%= @place.comments %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Place
+      </button>
+      or
+      <a href="/places">Cancel</a>
+    </form>
+  </div>
+</div>
