@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @deal.errors.any? %>
+  <% @deal.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Deal</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_deal" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for discount_type -->
+      <div class="form-group">
+        <label for="discount_type" class="control-label">
+          Discount type
+        </label>
+
+        <input type="text" id="discount_type" name="discount_type" placeholder="Discount type" class="form-control" value="<%= @deal.discount_type %>">
+      </div>
+
+      <!-- Label and input for terms_of_deal -->
+      <div class="form-group">
+        <label for="terms_of_deal" class="control-label">
+          Terms of deal
+        </label>
+
+        <textarea id="terms_of_deal" name="terms_of_deal" placeholder="Terms of deal" class="form-control" rows="3"><%= @deal.terms_of_deal %></textarea>
+      </div>
+
+      <!-- Label and input for day_of_week -->
+      <div class="form-group">
+        <label for="day_of_week" class="control-label">
+          Day of week
+        </label>
+
+        <input type="text" id="day_of_week" name="day_of_week" placeholder="Day of week" class="form-control" value="<%= @deal.day_of_week %>">
+      </div>
+
+      <!-- Label and input for place_id -->
+      <div class="form-group">
+        <label for="place_id" class="control-label">
+          Place
+        </label>
+
+        <input type="text" id="place_id" name="place_id" placeholder="Place" class="form-control" value="<%= @deal.place_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Deal
+      </button>
+      or
+      <a href="/deals">Cancel</a>
+    </form>
+  </div>
+</div>
