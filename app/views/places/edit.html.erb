@@ -78,7 +78,7 @@
           Place type
         </label>
 
-        <input type="text" id="place_type_id" name="place_type_id" placeholder="Place type" class="form-control" value="<%= @place.place_type_id %>">
+        <%= select_tag(:place_type_id, options_from_collection_for_select(PlaceType.all, :id, :place_type, @place.place_type_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for user_id -->
