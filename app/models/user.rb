@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :my_gift_cards,
+             :dependent => :destroy
+
   has_many   :places,
              :dependent => :nullify
 

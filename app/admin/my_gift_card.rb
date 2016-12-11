@@ -1,6 +1,6 @@
 ActiveAdmin.register MyGiftCard do
 
- permit_params :place_id, :expiration_date, :card_image
+ permit_params :place_id, :expiration_date, :card_image, :user_id
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

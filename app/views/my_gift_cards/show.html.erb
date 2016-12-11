@@ -20,18 +20,29 @@
       <dt>Card image</dt>
       <dd><img src="<%= @my_gift_card.card_image %>" class="img-responsive"></dd>
 
+      <dt>User</dt>
+      <dd>
+        <% if @my_gift_card.user.present? %>
+          <a href="/users/<%= @my_gift_card.user_id %>">
+            <%= @my_gift_card.user.email %>
+          </a>
+        <% end %>
+      </dd>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
       <a href="/my_gift_cards" class="btn btn-primary">
         Back
       </a>
-      <a href="/my_gift_cards/<%= @my_gift_card.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_my_gift_card/<%= @my_gift_card.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @my_gift_card.user %>
+        <a href="/my_gift_cards/<%= @my_gift_card.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_my_gift_card/<%= @my_gift_card.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
