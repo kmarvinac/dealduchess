@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Place_type resource:
+  # CREATE
+  get "/place_types/new", :controller => "place_types", :action => "new"
+  post "/create_place_type", :controller => "place_types", :action => "create"
+
+  # READ
+  get "/place_types", :controller => "place_types", :action => "index"
+  get "/place_types/:id", :controller => "place_types", :action => "show"
+
+  # UPDATE
+  get "/place_types/:id/edit", :controller => "place_types", :action => "edit"
+  post "/update_place_type/:id", :controller => "place_types", :action => "update"
+
+  # DELETE
+  get "/delete_place_type/:id", :controller => "place_types", :action => "destroy"
+  #------------------------------
+
   # Routes for the Place resource:
   # CREATE
   get "/places/new", :controller => "places", :action => "new"

@@ -1,0 +1,37 @@
+<!-- Validation failure messages -->
+<% if @place_type.errors.any? %>
+  <% @place_type.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Place Type #<%= @place_type.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_place_type/<%= @place_type.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for place_type -->
+      <div class="form-group">
+        <label for="place_type" class="control-label">
+          Place type
+        </label>
+
+        <input type="text" id="place_type" name="place_type" placeholder="Place type" class="form-control" value="<%= @place_type.place_type %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Place Type
+      </button>
+      or
+      <a href="/place_types/<%= @place_type.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
