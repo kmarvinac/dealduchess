@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "places#index"
   # Routes for the My_gift_card resource:
   # CREATE
   get "/my_gift_cards/new", :controller => "my_gift_cards", :action => "new"
