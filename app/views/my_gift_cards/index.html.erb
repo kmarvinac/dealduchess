@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>
+    My gift cards
+    <a href="/my_gift_cards/new" class="btn btn-lg btn-success">New My gift card</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Place</th>
+        <th>Expiration date</th>
+        <th>Card image</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @my_gift_cards.each do |my_gift_card| %>
+      <tr>
+        <td><%= my_gift_card.place_id %></td>
+        <td><%= my_gift_card.expiration_date %></td>
+        <td><%= my_gift_card.card_image %></td>
+        <td>
+          <a href="/my_gift_cards/<%= my_gift_card.id %>" class="btn btn-primary">Show</a>
+          <a href="/my_gift_cards/<%= my_gift_card.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_my_gift_card/<%= my_gift_card.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

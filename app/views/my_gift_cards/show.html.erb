@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>My Gift Card #<%= @my_gift_card.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Place</dt>
+      <dd><%= @my_gift_card.place_id %></dd>
+
+      <dt>Expiration date</dt>
+      <dd><%= @my_gift_card.expiration_date %></dd>
+
+      <dt>Card image</dt>
+      <dd><%= @my_gift_card.card_image %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/my_gift_cards" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/my_gift_cards/<%= @my_gift_card.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_my_gift_card/<%= @my_gift_card.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

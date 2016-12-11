@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the My_gift_card resource:
+  # CREATE
+  get "/my_gift_cards/new", :controller => "my_gift_cards", :action => "new"
+  post "/create_my_gift_card", :controller => "my_gift_cards", :action => "create"
+
+  # READ
+  get "/my_gift_cards", :controller => "my_gift_cards", :action => "index"
+  get "/my_gift_cards/:id", :controller => "my_gift_cards", :action => "show"
+
+  # UPDATE
+  get "/my_gift_cards/:id/edit", :controller => "my_gift_cards", :action => "edit"
+  post "/update_my_gift_card/:id", :controller => "my_gift_cards", :action => "update"
+
+  # DELETE
+  get "/delete_my_gift_card/:id", :controller => "my_gift_cards", :action => "destroy"
+  #------------------------------
+
   # Routes for the Neighborhood resource:
   # CREATE
   get "/neighborhoods/new", :controller => "neighborhoods", :action => "new"
