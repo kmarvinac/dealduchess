@@ -7,5 +7,5 @@ class Neighborhood < ApplicationRecord
   # Indirect associations
 
   # Validations
-
+  
 end

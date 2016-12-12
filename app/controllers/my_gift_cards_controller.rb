@@ -3,6 +3,7 @@ class MyGiftCardsController < ApplicationController
     @q = MyGiftCard.ransack(params[:q])
 
     @my_gift_cards = @q.result(:distinct => true).includes(:place).page(params[:page]).per(10)
+    # @my_gift_cards = @gift_cards.where(user_id: current_user.id)
     render("my_gift_cards/index.html.erb")
   end
 
@@ -24,6 +25,7 @@ class MyGiftCardsController < ApplicationController
     @my_gift_card.place_id = params[:place_id]
     @my_gift_card.expiration_date = params[:expiration_date]
     @my_gift_card.card_image = params[:card_image]
+    @my_gift_card.user_id = params[:user_id]
 
     save_status = @my_gift_card.save
 

@@ -38,5 +38,7 @@ class Place < ApplicationRecord
   # Indirect associations
 
   # Validations
-
+  validates :address, presence: true
+  validates :place_name, presence: true
+  validates :zip, presence: true
 end

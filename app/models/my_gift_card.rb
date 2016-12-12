@@ -6,8 +6,10 @@ class MyGiftCard < ApplicationRecord
   belongs_to :place,
              :counter_cache => true
 
+  belongs_to :user,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
-
 end
